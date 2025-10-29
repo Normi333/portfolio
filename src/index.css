@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-mono overflow-x-hidden;
+    background-color: #ffffff;
+    color: #24292f;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: #0d1117;
+    color: #e6edf3;
+  }
+}
+
+@layer components {
+  .code-window {
+    @apply rounded-lg overflow-hidden;
+    background-color: #f6f8fa;
+    border: 1px solid #d0d7de;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .dark .code-window {
+    background-color: #161b22;
+    border-color: #30363d;
+  }
+
+  .code-header {
+    @apply px-4 py-2 flex items-center gap-2;
+    background-color: #d0d7de;
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .code-header {
+    background-color: #30363d;
+  }
+
+  .code-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .code-dot-red {
+    background-color: #cf222e;
+  }
+
+  .dark .code-dot-red {
+    background-color: #f85149;
+  }
+
+  .code-dot-yellow {
+    background-color: #9a6700;
+  }
+
+  .dark .code-dot-yellow {
+    background-color: #d29922;
+  }
+
+  .code-dot-green {
+    background-color: #1a7f37;
+  }
+
+  .dark .code-dot-green {
+    background-color: #3fb950;
+  }
+
+  .terminal-prompt {
+    @apply font-mono;
+    color: #0969da;
+    transition: color 0.3s ease;
+  }
+
+  .dark .terminal-prompt {
+    color: #58a6ff;
+  }
+
+  .syntax-keyword {
+    @apply font-mono;
+    color: #8250df;
+    transition: color 0.3s ease;
+  }
+
+  .dark .syntax-keyword {
+    color: #a5a2ff;
+  }
+
+  .syntax-string {
+    @apply font-mono;
+    color: #1a7f37;
+    transition: color 0.3s ease;
+  }
+
+  .dark .syntax-string {
+    color: #3fb950;
+  }
+
+  .syntax-function {
+    @apply font-mono;
+    color: #0969da;
+    transition: color 0.3s ease;
+  }
+
+  .dark .syntax-function {
+    color: #58a6ff;
+  }
+
+  .syntax-comment {
+    @apply font-mono;
+    color: #656d76;
+    transition: color 0.3s ease;
+  }
+
+  .dark .syntax-comment {
+    color: #7d8590;
+  }
+
+  .glow-border {
+    @apply shadow-lg;
+    border: 1px solid #0969da;
+    box-shadow: 0 0 20px rgba(9, 105, 218, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .dark .glow-border {
+    border-color: #58a6ff;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+  }
+
+  .glow-border:hover {
+    box-shadow: 0 0 30px rgba(9, 105, 218, 0.5);
+  }
+
+  .dark .glow-border:hover {
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.5);
+  }
+}
