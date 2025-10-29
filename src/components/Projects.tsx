@@ -2,6 +2,11 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github, Code2, Folder } from 'lucide-react'
 import { useState } from 'react'
 
+// Import project images
+import frontendPortfolioImg from '/images/projects/frontend_portfolio.png'
+import dashboardAppImg from '/images/projects/dashboard_app.jpg'
+import aimlUiImg from '/images/projects/aimlui.png'
+
 const Projects = () => {
     const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
     const [failedImages, setFailedImages] = useState<Set<number>>(new Set())
@@ -20,7 +25,7 @@ const Projects = () => {
             id: 1,
             title: 'Personal Portfolio Website',
             description: 'My personal portfolio website featuring a developer-focused design with code syntax highlighting, smooth animations, and responsive layout. Includes working contact form, project showcase, and automated deployment via GitHub Actions.',
-            image: '/images/projects/frontend_portfolio.png',
+            image: frontendPortfolioImg,
             technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite', 'EmailJS'],
             liveUrl: 'https://normi333.github.io/portfolio/',
             githubUrl: 'https://github.com/Normi333/portfolio',
@@ -33,7 +38,7 @@ const Projects = () => {
             id: 2,
             title: 'Expense Tracker',
             description: 'A simple expense tracking app built with React Native and Expo. Track your income and expenses with charts and categories.',
-            image: '/images/projects/dashboard_app.jpg',
+            image: dashboardAppImg,
             technologies: ['React Native', 'Expo', 'TypeScript', 'AsyncStorage', 'React Native Chart Kit', 'NativeWind'],
             liveUrl: '#',
             githubUrl: 'https://github.com/Normi333/expense-tracker',
@@ -44,7 +49,7 @@ const Projects = () => {
             id: 3,
             title: 'Sketch2Image',
             description: 'Academic project: A deep learning project that transforms hand-drawn sketches into realistic images using a U-Net architecture. This model learns to generate detailed outputs from minimal input.',
-            image: '/images/projects/aimlui.png',
+            image: aimlUiImg,
             technologies: ['Python', 'Flask', 'TensorFlow', 'Pandas'],
             liveUrl: '#',
             githubUrl: 'https://github.com/Normi333/sketch2image',
