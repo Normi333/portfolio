@@ -12,16 +12,7 @@ const Projects = () => {
 
     const handleImageError = (projectId: number) => {
         setFailedImages(prev => new Set(prev).add(projectId))
-        setLoadedImages(prev => new Set(prev).add(projectId)) // Stop loading state
-    }
-
-    // Helper function to get the correct image path
-    const getImagePath = (imagePath: string) => {
-        // Use import.meta.env.BASE_URL which Vite sets based on the base config
-        const baseUrl = import.meta.env.BASE_URL
-        // Remove leading slash from imagePath and combine with baseUrl
-        const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath
-        return baseUrl + cleanPath
+        setLoadedImages(prev => new Set(prev).add(projectId)) // Mark as "loaded" to hide skeleton
     }
 
     const projects = [
@@ -125,9 +116,10 @@ const Projects = () => {
                                             </div>
                                         )}
 
-                                        {!failedImages.has(project.id) ? (
+                                        {/* Show image only if it hasn't failed */}
+                                        {!failedImages.has(project.id) && (
                                             <img
-                                                src={getImagePath(project.image)}
+                                                src={project.image}
                                                 alt={project.title}
                                                 className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
                                                     }`}
@@ -136,13 +128,22 @@ const Projects = () => {
                                                 onLoad={() => handleImageLoad(project.id)}
                                                 onError={() => handleImageError(project.id)}
                                             />
-                                        ) : (
-                                            <div className="w-full h-full bg-gradient-to-br from-code-surface-light to-code-border-light dark:from-code-surface-dark dark:to-code-border-dark flex items-center justify-center">
+                                        )}
+
+                                        {/* Fallback content when image fails to load */}
+                                        {failedImages.has(project.id) && (
+                                            <div className="absolute inset-0 bg-gradient-to-br from-code-surface-light to-code-border-light dark:from-code-surface-dark dark:to-code-border-dark flex flex-col items-center justify-center">
                                                 <div className="text-center p-4">
-                                                    <Code2 size={32} className="text-code-text-muted-light dark:text-code-text-muted-dark mx-auto mb-2" />
-                                                    <p className="text-code-text-muted-light dark:text-code-text-muted-dark font-mono text-xs">
+                                                    <Folder size={32} className="text-code-text-muted-light dark:text-code-text-muted-dark mx-auto mb-2" />
+                                                    <h4 className="text-code-text-light dark:text-code-text-dark font-mono text-sm font-semibold mb-1">
                                                         {project.title}
+                                                    </h4>
+                                                    <p className="text-code-text-muted-light dark:text-code-text-muted-dark font-mono text-xs">
+                                                        {project.category}
                                                     </p>
+                                                    <div className="mt-2 text-code-text-muted-light dark:text-code-text-muted-dark font-mono text-xs opacity-60">
+                                                        Image preview unavailable
+                                                    </div>
                                                 </div>
                                             </div>
                                         )}
