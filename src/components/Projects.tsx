@@ -12,7 +12,7 @@ const Projects = () => {
 
     const handleImageError = (projectId: number) => {
         setFailedImages(prev => new Set(prev).add(projectId))
-        setLoadedImages(prev => new Set(prev).add(projectId)) // Mark as "loaded" to hide skeleton
+        setLoadedImages(prev => new Set(prev).add(projectId))
     }
 
     const projects = [
