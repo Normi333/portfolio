@@ -106,7 +106,7 @@ const About = () => {
                                                     <span className="syntax-keyword">class</span>
                                                     <span className="text-code-accent dark:text-code-accent-dark"> Developer</span>
                                                     <span> {`{`}</span>
-                                                </> 
+                                                </>
                                             )}
                                             {line.includes('constructor') && (
                                                 <span className="ml-4 syntax-function">constructor() {`{`}</span>
@@ -228,7 +228,7 @@ const About = () => {
                                 <p className="font-mono text-sm">
                                     <span className="syntax-comment">/*</span>
                                     <br />
-                                    <span className="syntax-comment ml-2">I'm a passionate frontend developer with {3}+ years</span>
+                                    <span className="syntax-comment ml-2">I'm a passionate frontend developer with {1}+ years</span>
                                     <br />
                                     <span className="syntax-comment ml-2">of experience building modern web applications.</span>
                                     <br />
@@ -245,7 +245,9 @@ const About = () => {
                                     <br />
                                     <span className="syntax-comment ml-2">new technologies, contributing to open source,</span>
                                     <br />
-                                    <span className="syntax-comment ml-2">or sharing knowledge with the dev community.</span>
+                                    <span className="syntax-comment ml-2">or enjoying the outdoors — especially trekking</span>
+                                    <br />
+                                    <span className="syntax-comment ml-2">and spending time in the mountains.</span>
                                     <br />
                                     <span className="syntax-comment">*/</span>
                                 </p>

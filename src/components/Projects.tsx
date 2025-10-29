@@ -25,25 +25,25 @@ const Projects = () => {
         },
         {
             id: 2,
-            title: 'Coming Soon - E-Commerce Project',
-            description: 'Currently developing a full-stack e-commerce platform with React, Node.js, and MongoDB. Will feature product management, user authentication, and payment integration.',
-            image: '/images/projects/ecommerce-mockup.png',
-            technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Stripe API'],
+            title: 'Expense Tracker',
+            description: 'A simple expense tracking app built with React Native and Expo. Track your income and expenses with charts and categories.',
+            image: '/images/projects/dashboard_app.jpg',
+            technologies: ['React Native', 'Expo', 'TypeScript', 'AsyncStorage', 'React Native Chart Kit', 'NativeWind'],
             liveUrl: '#',
-            githubUrl: '#',
-            featured: false,
-            category: 'In Development'
+            githubUrl: 'https://github.com/Normi333/expense-tracker',
+            featured: true,
+            category: 'App Development'
         },
         {
             id: 3,
-            title: 'Learning Management System',
-            description: 'Academic project: A comprehensive learning management system built during my studies. Includes user authentication, course creation, assignment submission, grade management, and student progress tracking with responsive design.',
-            image: '/images/projects/lms-screenshot.png',
-            technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap'],
+            title: 'Sketch2Image',
+            description: 'Academic project: A deep learning project that transforms hand-drawn sketches into realistic images using a U-Net architecture. This model learns to generate detailed outputs from minimal input.',
+            image: '/images/projects/aimlui.png',
+            technologies: ['Python', 'Flask', 'TensorFlow', 'Pandas'],
             liveUrl: '#',
-            githubUrl: 'https://github.com/Normi333/learning-management-system',
+            githubUrl: 'https://github.com/Normi333/sketch2image',
             featured: true,
-            category: 'Full Stack'
+            category: 'AI/ML'
         }
     ]
 
@@ -110,26 +110,20 @@ const Projects = () => {
                                             </div>
                                         )}
 
-                                        <picture>
-                                            <source
-                                                srcSet={project.image.replace('.png', '.webp')}
-                                                type="image/webp"
-                                            />
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
-                                                    }`}
-                                                loading="lazy"
-                                                decoding="async"
-                                                onLoad={() => handleImageLoad(project.id)}
-                                                onError={(e) => {
-                                                    const target = e.target as HTMLImageElement;
-                                                    target.src = `https://via.placeholder.com/500x300/1a1a1a/ffffff?text=${encodeURIComponent(project.title)}`;
-                                                    handleImageLoad(project.id);
-                                                }}
-                                            />
-                                        </picture>
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
+                                                }`}
+                                            loading="lazy"
+                                            decoding="async"
+                                            onLoad={() => handleImageLoad(project.id)}
+                                            onError={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                target.src = `https://via.placeholder.com/500x300/1a1a1a/ffffff?text=${encodeURIComponent(project.title)}`;
+                                                handleImageLoad(project.id);
+                                            }}
+                                        />
                                         <div className="absolute inset-0 bg-code-bg-light/80 dark:bg-code-bg-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 sm:gap-4">
                                             <motion.a
                                                 href={project.liveUrl}
